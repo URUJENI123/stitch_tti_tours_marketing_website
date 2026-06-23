@@ -1,0 +1,475 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tour Packages | TTI Tours Ltd.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-surface-variant": "#42474f",
+                "secondary": "#0d6686",
+                "surface-tint": "#336190",
+                "tertiary-container": "#094b4e",
+                "on-secondary": "#ffffff",
+                "primary-fixed-dim": "#9fcaff",
+                "on-secondary-fixed": "#001e2b",
+                "on-tertiary-fixed": "#002021",
+                "primary-fixed": "#d1e4ff",
+                "surface-container-highest": "#dee3e6",
+                "secondary-fixed": "#c1e8ff",
+                "background": "#f5fafd",
+                "on-surface": "#171c1f",
+                "outline": "#727780",
+                "surface-dim": "#d6dbde",
+                "surface-container": "#eaeff2",
+                "on-primary": "#ffffff",
+                "on-primary-fixed-variant": "#154977",
+                "inverse-surface": "#2c3134",
+                "secondary-container": "#95dbff",
+                "tertiary-fixed-dim": "#98d0d3",
+                "on-error": "#ffffff",
+                "on-tertiary-fixed-variant": "#104f52",
+                "tertiary-fixed": "#b4edf0",
+                "on-background": "#171c1f",
+                "on-primary-fixed": "#001d36",
+                "on-error-container": "#93000a",
+                "surface-variant": "#dee3e6",
+                "inverse-primary": "#9fcaff",
+                "surface-bright": "#f5fafd",
+                "tertiary": "#003335",
+                "on-tertiary-container": "#82babd",
+                "on-secondary-fixed-variant": "#004d66",
+                "secondary-fixed-dim": "#8acff3",
+                "on-tertiary": "#ffffff",
+                "primary-container": "#0e4573",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-container": "#006181",
+                "error-container": "#ffdad6",
+                "surface-container-low": "#eff4f7",
+                "outline-variant": "#c2c7d0",
+                "surface": "#f5fafd",
+                "on-primary-container": "#87b3e7",
+                "primary": "#002e53",
+                "inverse-on-surface": "#ecf1f4",
+                "error": "#ba1a1a",
+                "surface-container-high": "#e4e9ec"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "gutter": "24px",
+                "container-max": "1280px",
+                "stack-sm": "8px",
+                "margin-mobile": "16px",
+                "stack-md": "24px",
+                "stack-lg": "64px"
+            },
+            "fontFamily": {
+                "headline-xl": ["Sora"],
+                "headline-lg-mobile": ["Sora"],
+                "headline-md": ["Sora"],
+                "body-lg": ["Hanken Grotesk"],
+                "headline-lg": ["Sora"],
+                "body-md": ["Hanken Grotesk"],
+                "label-caps": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f5fafd;
+            color: #171c1f;
+        }
+        .region-tab-active {
+            color: #0d6686;
+            border-bottom: 2px solid #0d6686;
+        }
+        .tour-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 30px rgba(14, 69, 115, 0.12);
+        }
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+        .memorial-section {
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(to right, rgba(245, 250, 253, 1), rgba(239, 244, 247, 1));
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #dee3e6;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #0d6686;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-md shadow-[0px_4px_20px_rgba(14,69,115,0.08)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">TTI Tours</div>
+<div class="hidden md:flex gap-stack-md items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">About Us</a>
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary" href="#">Tour Packages</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Coffee Experience</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Our Services</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold transition-all duration-200 active:scale-95 hover:opacity-90">
+                Plan Your Trip
+            </button>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<header class="relative h-[614px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0" data-alt="A wide-angle, breathtaking cinematic shot of the rolling green hills and volcanic peaks of Rwanda under a soft, golden sunrise. The landscape is lush and vibrant, with mist clinging to the valleys, evoking a sense of ancient, untouched majesty. The lighting is ethereal and warm, maintaining a premium travel editorial aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU5sTK7ta6-hb_-LV6g1vE6JoBAO3sZX1xWp_wSHN-bnMqEYWGGhSW5-LbI03n2nXzka5PrYTm2K0EVpcoobu8kovlSsbN1EAeilLCCKxS-ZqYpOimBI65L-GzfmqSiAuGk8WyOBIchGF3lvWkeJN-O63KPkfgaHiZeT5LvXkFBI5oHyOIbmmtI5Mx6ttuaEpZuIru8UV7S5QUG5hI1T6pxQACVAJHd59nEHC0qDlO28xLHTv_uiWUYPWzs34ee52OW6elL_fpLiU')"></div>
+<div class="absolute inset-0 bg-primary/30 z-10"></div>
+<div class="relative z-20 px-gutter max-w-container-max mx-auto w-full text-white">
+<h1 class="font-headline-xl text-headline-xl mb-4 max-w-2xl">Discover Rwanda Through Local Eyes</h1>
+<p class="font-body-lg text-body-lg max-w-xl opacity-90">Curated expeditions across the Land of a Thousand Hills, from the mist-covered volcanoes to the serene shores of Lake Kivu.</p>
+</div>
+</header>
+<!-- Regional Navigation -->
+<section class="sticky top-[72px] z-40 bg-surface shadow-sm border-b border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-gutter overflow-x-auto custom-scrollbar flex gap-stack-lg whitespace-nowrap">
+<button class="py-6 font-bold transition-all text-on-surface-variant" onclick="scrollToRegion('northern')">Northern Corridor</button>
+<button class="py-6 font-bold hover:text-secondary transition-all text-secondary border-b-2 border-secondary" onclick="scrollToRegion('southern')">Southern Corridor</button>
+<button class="py-6 font-bold text-on-surface-variant hover:text-secondary transition-all" onclick="scrollToRegion('nyungwe')">Nyungwe Forest</button>
+<button class="py-6 font-bold text-on-surface-variant hover:text-secondary transition-all" onclick="scrollToRegion('kivu')">Kivu Belt Road</button>
+<button class="py-6 font-bold text-on-surface-variant hover:text-secondary transition-all" onclick="scrollToRegion('eastern')">Eastern Province</button>
+<button class="py-6 font-bold hover:text-secondary transition-all text-on-surface-variant" onclick="scrollToRegion('kigali')">Kigali City</button>
+</div>
+</section>
+<!-- Region: Northern Corridor -->
+<section class="py-stack-lg px-gutter max-w-container-max mx-auto" id="northern">
+<div class="mb-stack-md flex flex-col md:flex-row md:items-end justify-between gap-stack-sm">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Explore the Highlands</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">Northern Corridor</h2>
+</div>
+<p class="max-w-md text-on-surface-variant italic">The heart of Rwanda's conservation efforts and the majestic home of the mountain gorillas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md">
+<!-- Gorilla Trekking Card - FEATURED -->
+<div class="lg:col-span-2 bg-white rounded-xl overflow-hidden tour-card flex flex-col md:flex-row">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" data-alt="A powerful, close-up portrait of a Silverback mountain gorilla in the lush, emerald undergrowth of Volcanoes National Park. The gorilla's expression is calm and wise, with fine details of its fur and the surrounding dew-laden leaves visible. Soft, diffused forest light filters through the canopy, creating a respectful and intimate atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjINUSRFv7UittYpBJO6AAHXe3F0BQVZgbbW94jSc03juQ6_Hk20gQl-kYIK4-cWlQm7QCS1zjMzw75Ro6kZZWKAlB3-z9P-oqN_1ETtbsKB8G0YdUwSjzmxd5qJuj-zDhNKTAiklEmyeJ5C6SkvGddnafz_nokaD2P7UO4BPEzfpQmircKY934UXriV3-cwHqoKKIkDoht6ayxhfzkEDio8uVly4bhWBpP9k8MYyzt4kHA_Iwa07q_uX7hreGyFffWbqZwvildIg">
+</div>
+<div class="md:w-1/2 p-stack-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Iconic Experience</span>
+<div class="text-primary font-bold">From $1,500</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Mountain Gorilla Trekking</h3>
+<p class="text-on-surface-variant mb-4">Witness the legendary Mountain Gorillas in their natural habitat. Includes a mention of the prestigious <span class="font-bold text-secondary">Kwita Izina</span> naming ceremony.</p>
+<div class="space-y-2 border-t border-outline-variant/30 pt-4 mb-4">
+<h4 class="text-xs font-bold text-on-surface uppercase tracking-wider">Visitor Rules &amp; Ethics</h4>
+<ul class="text-sm space-y-1 text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">check_circle</span> Maintain 10m distance</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">check_circle</span> Maximum 1 hour observation</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">check_circle</span> No flash photography</li>
+</ul>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded font-bold hover:bg-secondary transition-colors">Book This Expedition</button>
+</div>
+</div>
+<!-- Golden Monkeys -->
+<div class="bg-white rounded-xl overflow-hidden tour-card flex flex-col">
+<div class="h-48 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Golden monkeys leaping between bamboo stalks in a vibrant, sun-dappled forest. Their orange-tinted fur glows against the deep green bamboo. The scene is full of dynamic energy and natural beauty, captured with a sharp focus and high-end photographic clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA98WmRTN0yfjqYZJDJTfpxuhe1f39FoFWO72sO-lZxxtK5bCT4qcIjSlggWuT9ZIBa3Jaiwj_TNYPgNkv4uRyFicxfeSKo1UNJCenfrokBkn6bRkCGfAPloyJg7h03gjY_ufTL_Ls8h8Uk14sKIy16brX9Rue7vdkfXIjl1TK-7AiAiEuo-ovyRWW6adEGYI1Gt_H_siu-XS9UK1MBX2JIAZBiUHpwCkhxKmdgLcmV7ZYTGz_BQeKQgVhSC3hbFIgSXijmTJeO0uQ">
+</div>
+<div class="p-stack-md flex flex-col flex-grow justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Golden Monkey Tracking</h3>
+<p class="text-sm text-on-surface-variant mb-4">A playful encounter with the endangered Golden Monkeys in the bamboo forests of the Virungas.</p>
+</div>
+<div class="flex justify-between items-center border-t border-outline-variant/30 pt-4">
+<span class="text-secondary font-bold">$100 / Person</span>
+<span class="material-symbols-outlined text-secondary">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Region: Kigali City & Memorials (Sensitivity Focus) -->
+<section class="memorial-section py-stack-lg" id="kigali">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-stack-lg">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em]">Remembrance &amp; Reflection</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">Kigali &amp; Historical Legacies</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+<div class="space-y-6">
+<h3 class="font-headline-md text-headline-md text-primary">Kigali Genocide Memorial</h3>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                            A place of dignified remembrance for the victims of the 1994 Genocide against the Tutsi. We approach this visit with profound respect, allowing travelers to understand Rwanda's journey of healing and reconciliation. 
+                        </p>
+<div class="p-6 border-l-4 border-secondary bg-surface-container-low rounded-r-lg">
+<p class="text-sm text-on-surface-variant italic font-medium">
+                                "Guided tours are conducted in silence. Photography is restricted in sacred areas to honor those who rest here."
+                            </p>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden shadow-xl aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist, serene architectural view of the Kigali Genocide Memorial's eternal flame and gardens. The composition is clean and respectful, focusing on the calm white stone, the gentle water features, and the vibrant greenery. The lighting is soft and overcast, creating a contemplative and peaceful atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj6aIoBAgt21Bbyc-9-RFFE7UYTkUoJS8d8xrWKxmRPvySWjMpYF_TmEpQBk-M7j12Fkb-X9cJxmGiCwxpKY6SEq8dqEGvrdXZHbqb22zpryiWe9vk6hXSeuT-wKzeGwYQTlme8T9Tn4aZHpsDJZzEmRJNVgerrGWGD0Fs3SU6Ccsecd73yn1Axq28XdeJl5BnnHy_xgAhYx9R8tljcsAYvSGoGG9DkPyUfz8XnxQxIycJRzMBweOg3p8ag5_mUy78hoxpA2ayb9c">
+</div>
+</div>
+</div>
+</section>
+<!-- Region: Southern Corridor & Murambi -->
+<section class="py-stack-lg px-gutter max-w-container-max mx-auto" id="southern">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center mb-20">
+<div class="order-2 md:order-1 rounded-xl overflow-hidden shadow-xl aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="An artistic, monochromatic photograph of the exterior of the Murambi Genocide Memorial, highlighting the stark, minimalist architecture against a wide, dramatic Rwandan sky. The image is composed with great negative space to evoke a feeling of solemnity and historical weight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwf3PRg9j3IC02mQskZkza73URTjSTfDZUcV4z3V2cAVXGunWLxCO1Y3pQmfdWr2vs4MMiHF4ScchzEE5Z-HE4L9rt2Mo9AwCwUbTN2trAW54-cRziYHlf7xBgzzveYGNQr7GKgA_foeN-9ahqQrvDKqJhKtLDtM2upZtbQ7us1om5Big279t2K4AjbLcC4AsQ5zAlYlR-mTvuxw0xd6BTtg9vtoqK_NTJcF90JBi7Q40Xss11ae0ky6VZfqh4s_l1L92f6uSPdM8">
+</div>
+<div class="order-1 md:order-2 space-y-6">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Southern History</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">Murambi Memorial &amp; Huye</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+                        The Southern Corridor offers a deep dive into Rwanda’s royal history and the somber lessons of Murambi. Our tours combine the Ethnographic Museum in Huye with a respectful guided visit to Murambi.
+                    </p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-secondary font-bold">
+<span class="material-symbols-outlined">history_edu</span>
+<span class="">Royal Heritage</span>
+</div>
+<div class="flex items-center gap-2 text-secondary font-bold">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="">Historical Insight</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid for Other Regions -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md mt-stack-lg">
+<!-- Nyungwe -->
+<div class="bg-primary rounded-2xl p-8 text-white flex flex-col justify-between h-96 relative overflow-hidden group" id="nyungwe">
+<div class="absolute inset-0 opacity-40 group-hover:scale-110 transition-transform duration-700 z-0">
+<img class="w-full h-full object-cover" data-alt="A high-altitude shot of the Nyungwe Forest Canopy Walkway, a suspension bridge stretching across a deep, primeval forest valley. Ancient trees and dense ferns fill the frame, shrouded in a light, tropical mist. The scene is adventurous and breathtaking, rendered with premium landscape photography quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1o10DoB26P7Q4GPHmqWgo5w3aQ523OtomesqbEWjGMiQHaZDdueaCbeWNRYD3nQ5vL1xyPq8cYfJh13QbsURgE-w1p26qsD6iaUjz-DojxvbByuMgostzORNnvZWHpvD30lmFLA_WVcQni4OvV_H8RZSYlkYA4_Apqn7QZVDcOMoxJOGXgo4-fWmdVVF-oh8gSZJeEXi2fbhQIUX-O4KrxoNandGcAJgukAfvtQfgZ4HOTt3cyWGTbvpUVxNneoRtxPwu49aiBW0">
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-2">Nyungwe Forest</h3>
+<p class="opacity-80">Primate trekking and canopy walks in one of Africa's oldest rainforests.</p>
+</div>
+<div class="relative z-10 flex items-center justify-between">
+<span class="font-bold">13 Primate Species</span>
+<span class="material-symbols-outlined bg-white/20 p-2 rounded-full">explore</span>
+</div>
+</div>
+<!-- Kivu Belt -->
+<div class="bg-white rounded-2xl p-8 border border-outline-variant/30 flex flex-col justify-between h-96 tour-card" id="kivu">
+<div>
+<span class="text-secondary font-bold uppercase text-xs tracking-tighter">Scenic Drive</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-2">Kivu Belt Road</h3>
+<p class="text-on-surface-variant mt-2 text-sm leading-relaxed">The most beautiful road in Rwanda, winding along the sapphire waters and emerald islands of Lake Kivu.</p>
+</div>
+<div class="rounded-lg overflow-hidden h-32 my-4">
+<img class="w-full h-full object-cover" data-alt="The winding roads of the Kivu Belt, hugging the steep cliffs that overlook the deep blue, shimmering waters of Lake Kivu. Fishing boats with long wooden outriggers dot the water, and the distant hills of Congo are visible in a blue haze. The aesthetic is bright, Mediterranean-like, and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Te-v4-XPLwpzW73io7hf78968Csd6HkUMraooTO16g7xp7Hd1N1vmYdIHfydoJ83cOsgL5PspcBuavearcOPKpBcu4bcciWkgyLspaQV62DayJ2xrSLbT9zxNl_Un7DFsp5yF52xYg7xJACczZda0PQaGvqnAhon-9Kmr54gn0bpdm7pZZ5qbd3TYsngKLOMZjNNBhYNC7dmf40rl7IZlGsF6mdWA1pTUVMDuyrIPXXTelJROB9V2Y-SA-SP6-UxKTidldUu6AI">
+</div>
+<button class="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">Explore Route <span class="material-symbols-outlined">trending_flat</span></button>
+</div>
+<!-- Eastern Province -->
+<div class="bg-secondary-container rounded-2xl p-8 text-on-secondary-container flex flex-col justify-between h-96 tour-card" id="eastern">
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Eastern Province</h3>
+<p class="text-sm opacity-90">Savannah safaris in Akagera National Park. Big Five sightings and boat trips on Lake Ihema.</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">landscape</span>
+                            Akagera Safari
+                        </div>
+<div class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_boat</span>
+                            Lake Ihema Boat Trip
+                        </div>
+</div>
+<div class="pt-4 border-t border-on-secondary-container/20">
+<div class="flex justify-between items-center">
+<span class="font-bold">Day Trip $250</span>
+<span class="bg-primary text-white p-2 rounded-lg material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="py-stack-lg bg-surface-container-low">
+  <div class="max-w-container-max mx-auto px-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+      <div class="space-y-6">
+        <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Ready to Explore?</span>
+        <h2 class="font-headline-lg text-headline-lg text-primary">Tell Us About Your Visit</h2>
+        <p class="text-body-lg text-on-surface-variant leading-relaxed">
+          Whether you're interested in gorilla trekking, historical memorials, or a scenic drive along the Kivu Belt, our team is here to curate your perfect Rwandan journey.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-secondary bg-white p-3 rounded-full shadow-sm">mail</span>
+            <div>
+              <div class="font-bold text-primary">Email Us</div>
+              <div class="text-sm text-on-surface-variant">bookings@ttitours.rw</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-secondary bg-white p-3 rounded-full shadow-sm">call</span>
+            <div>
+              <div class="font-bold text-primary">Call Us</div>
+              <div class="text-sm text-on-surface-variant">+250 788 000 000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white p-8 rounded-2xl shadow-xl border border-outline-variant/30">
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-on-surface-variant uppercase">Full Name</label>
+              <input type="text" placeholder="John Doe" class="w-full p-3 rounded border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all">
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-bold text-on-surface-variant uppercase">Email Address</label>
+              <input type="email" placeholder="john@example.com" class="w-full p-3 rounded border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all">
+            </div>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-on-surface-variant uppercase">Interested In</label>
+            <select class="w-full p-3 rounded border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all">
+              <option>Mountain Gorilla Trekking</option>
+              <option>Kigali &amp; Historical Legacies</option>
+              <option>Southern Corridor &amp; Murambi</option>
+              <option>Nyungwe Forest Expedition</option>
+              <option>Kivu Belt Scenic Drive</option>
+              <option>Akagera Safari (Eastern Province)</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-bold text-on-surface-variant uppercase">Message</label>
+            <textarea rows="4" placeholder="Tell us about your group size and preferred dates..." class="w-full p-3 rounded border border-outline-variant/30 focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary text-on-primary py-4 rounded-lg font-bold hover:bg-secondary transition-colors active:scale-95">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section><footer class="bg-primary dark:bg-on-primary-fixed text-on-primary dark:text-primary-fixed">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg px-gutter py-stack-lg max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-on-primary">TTI Tours</div>
+<p class="text-sm opacity-80 leading-relaxed">
+                    © 2024 TTI Tours Ltd. All rights reserved. Exploring Rwanda's beauty responsibly.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4">Quick Links</h4>
+<ul class="space-y-2 opacity-80 text-sm">
+<li class=""><a class="hover:text-secondary-container transition-colors" href="#">Home</a></li>
+<li class=""><a class="hover:text-secondary-container transition-colors" href="#">About Us</a></li>
+<li class=""><a class="text-secondary-container font-bold" href="#">Tour Packages</a></li>
+<li class=""><a class="hover:text-secondary-container transition-colors" href="#">Coffee Experience</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Legal</h4>
+<ul class="space-y-2 opacity-80 text-sm">
+<li class=""><a class="hover:text-secondary-container transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="hover:text-secondary-container transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Stay Connected</h4>
+<div class="flex gap-4 mb-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-container">face_nod</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-container">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-container">mail</span>
+</div>
+<button class="border border-white/30 px-4 py-2 rounded text-sm hover:bg-white hover:text-primary transition-all">Contact Us</button>
+</div>
+</div>
+</footer>
+<script>
+        function scrollToRegion(id) {
+            const element = document.getElementById(id);
+            const headerOffset = 130;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+
+            // Update Active State Visuals
+            const buttons = document.querySelectorAll('section.sticky button');
+            buttons.forEach(btn => {
+                btn.classList.remove('text-secondary', 'border-b-2', 'border-secondary');
+                btn.classList.add('text-on-surface-variant');
+            });
+            event.target.classList.add('text-secondary', 'border-b-2', 'border-secondary');
+            event.target.classList.remove('text-on-surface-variant');
+        }
+
+        // Intersection Observer for Active Tab Update on Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '-150px 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const activeBtn = document.querySelector(`button[onclick*="${id}"]`);
+                    if (activeBtn) {
+                        const buttons = document.querySelectorAll('section.sticky button');
+                        buttons.forEach(btn => {
+                            btn.classList.remove('text-secondary', 'border-b-2', 'border-secondary');
+                            btn.classList.add('text-on-surface-variant');
+                        });
+                        activeBtn.classList.add('text-secondary', 'border-b-2', 'border-secondary');
+                        activeBtn.classList.remove('text-on-surface-variant');
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        document.querySelectorAll('section[id]').forEach(section => observer.observe(section));
+    </script>
+
+
+</body></html>

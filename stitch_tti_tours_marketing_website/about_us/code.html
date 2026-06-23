@@ -1,0 +1,342 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Us | TTI Tours Ltd.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Sora:wght@100..900&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#42474f",
+                    "secondary": "#0d6686",
+                    "surface-tint": "#336190",
+                    "tertiary-container": "#094b4e",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#9fcaff",
+                    "on-secondary-fixed": "#001e2b",
+                    "on-tertiary-fixed": "#002021",
+                    "primary-fixed": "#d1e4ff",
+                    "surface-container-highest": "#dee3e6",
+                    "secondary-fixed": "#c1e8ff",
+                    "background": "#f5fafd",
+                    "on-surface": "#171c1f",
+                    "outline": "#727780",
+                    "surface-dim": "#d6dbde",
+                    "surface-container": "#eaeff2",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#154977",
+                    "inverse-surface": "#2c3134",
+                    "secondary-container": "#95dbff",
+                    "tertiary-fixed-dim": "#98d0d3",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#104f52",
+                    "tertiary-fixed": "#b4edf0",
+                    "on-background": "#171c1f",
+                    "on-primary-fixed": "#001d36",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#dee3e6",
+                    "inverse-primary": "#9fcaff",
+                    "surface-bright": "#f5fafd",
+                    "tertiary": "#003335",
+                    "on-tertiary-container": "#82babd",
+                    "on-secondary-fixed-variant": "#004d66",
+                    "secondary-fixed-dim": "#8acff3",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#0e4573",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#006181",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#eff4f7",
+                    "outline-variant": "#c2c7d0",
+                    "surface": "#f5fafd",
+                    "on-primary-container": "#87b3e7",
+                    "primary": "#002e53",
+                    "inverse-on-surface": "#ecf1f4",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e4e9ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "stack-sm": "8px",
+                    "margin-mobile": "16px",
+                    "stack-md": "24px",
+                    "stack-lg": "64px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Hanken Grotesk"],
+                    "label-caps": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-shadow {
+            box-shadow: 0px 4px 20px rgba(14, 69, 115, 0.08);
+        }
+        .premium-shadow-hover:hover {
+            box-shadow: 0px 12px 30px rgba(14, 69, 115, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-md shadow-[0px_4px_20px_rgba(14,69,115,0.08)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed" href="#">TTI Tours</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-secondary border-b-2 border-secondary" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Tour Packages</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Coffee Experience</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Our Services</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold transition-all duration-200 active:scale-95 hover:opacity-90">
+                Plan Your Trip
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[716px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center scale-105 animate-[pulse_8s_infinite_alternate] transition-all duration-700 opacity-100 translate-y-0" data-alt="A cinematic, wide-angle landscape photograph of the lush, rolling green hills of Rwanda under a soft, golden sunrise. The atmosphere is ethereal with light morning mist clinging to the valleys between the volcanoes. The colors are vibrant yet natural, focusing on deep emerald greens and warm amber light, reflecting a premium and tranquil travel aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcFifgUkSQz87f4GF_P-ehy5EAwqOr4me0x-EP90UITp03eTdpP5h7oznlf-1WMU4wsuUxgjRpfOamAehKCNXgGTwcwyeDxsiQxJgxURhRCOboAFx_dqjPlN8epcL2lyKeS6lZ5kM0dw5afJFqn4vtDJiujHYxKBuf-FeWwMAifzZP4Vnc47Gwv0S8rKjnJnMhhmoZIkoObfEOVMquQE35KhvZcu8iSCL3UZre1jac4OsP6mk4EpYMDY3loeDtyH-dAucYhyKguC8')"></div>
+<div class="absolute inset-0 bg-primary/30 mix-blend-multiply transition-all duration-700 opacity-100 translate-y-0"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background/90 transition-all duration-700 opacity-100 translate-y-0"></div>
+</div>
+<div class="relative z-10 text-center px-gutter">
+<h1 class="font-headline-xl text-headline-xl text-white mb-4 drop-shadow-lg md:text-headline-xl text-headline-lg-mobile">
+                    Our Story &amp; Commitment
+                </h1>
+<p class="max-w-2xl mx-auto text-white/90 font-body-lg text-body-lg drop-shadow">
+                    Pioneering sustainable and authentic East African adventures that bridge the gap between luxury and the raw beauty of the natural world.
+                </p>
+</div>
+</section>
+<!-- Mission & Vision Section -->
+<section class="py-stack-lg max-w-container-max mx-auto px-gutter">
+<div class="grid md:grid-cols-2 gap-stack-md">
+<!-- Mission -->
+<div class="group bg-surface-container-lowest p-stack-md rounded-xl premium-shadow premium-shadow-hover transition-all duration-500 border-l-4 border-secondary duration-700 opacity-100 translate-y-0">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flag</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Mission</h2>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                        To provide high-quality, personalized travel experiences that exceed our clients' expectations, while promoting sustainable tourism and contributing to the socio-economic development of the communities we serve. We aim to be the bridge between global travelers and the hidden gems of Rwanda.
+                    </p>
+</div>
+<!-- Vision -->
+<div class="group bg-surface-container-lowest p-stack-md rounded-xl premium-shadow premium-shadow-hover transition-all duration-500 border-l-4 border-primary duration-700 opacity-100 translate-y-0">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Vision</h2>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                        To be the leading tour and travel company in Rwanda, recognized for our commitment to excellence, innovation, and sustainable tourism practices. We envision a world where every journey leaves a positive footprint on the planet and the souls of our travelers.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Values/Goals Section -->
+<section class="bg-surface-container-low py-stack-lg">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16 transition-all duration-700 opacity-100 translate-y-0">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Strategic Pillars</h2>
+<div class="h-1 w-20 bg-secondary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 transition-all duration-700 opacity-100 translate-y-0">
+<!-- Customer Satisfaction -->
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-lowest rounded-xl premium-shadow premium-shadow-hover transition-all">
+<div class="mb-4 text-secondary opacity-80">
+<span class="text-label-caps font-label-caps block mb-2">GOAL 01</span>
+<span class="material-symbols-outlined text-4xl">sentiment_very_satisfied</span>
+</div>
+<h3 class="font-headline-md text-body-md font-bold text-primary mb-2">Customer Satisfaction</h3>
+<p class="text-on-surface-variant text-sm">Ensuring every guest leaves with memories of a lifetime through meticulous planning and care.</p>
+</div>
+<!-- Destination Promotion -->
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-lowest rounded-xl premium-shadow premium-shadow-hover transition-all">
+<div class="mb-4 text-secondary opacity-80">
+<span class="text-label-caps font-label-caps block mb-2">GOAL 02</span>
+<span class="material-symbols-outlined text-4xl">public</span>
+</div>
+<h3 class="font-headline-md text-body-md font-bold text-primary mb-2">Destination Promotion</h3>
+<p class="text-on-surface-variant text-sm">Showcasing Rwanda's unique beauty, culture, and hospitality to the world stage.</p>
+</div>
+<!-- Sustainable Tourism -->
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-lowest rounded-xl premium-shadow premium-shadow-hover transition-all">
+<div class="mb-4 text-secondary opacity-80">
+<span class="text-label-caps font-label-caps block mb-2">GOAL 03</span>
+<span class="material-symbols-outlined text-4xl">eco</span>
+</div>
+<h3 class="font-headline-md text-body-md font-bold text-primary mb-2">Sustainable Tourism</h3>
+<p class="text-on-surface-variant text-sm">Operating with ecological integrity to protect our natural heritage for generations.</p>
+</div>
+<!-- Employee Development -->
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-lowest rounded-xl premium-shadow premium-shadow-hover transition-all">
+<div class="mb-4 text-secondary opacity-80">
+<span class="text-label-caps font-label-caps block mb-2">GOAL 04</span>
+<span class="material-symbols-outlined text-4xl">groups</span>
+</div>
+<h3 class="font-headline-md text-body-md font-bold text-primary mb-2">Employee Development</h3>
+<p class="text-on-surface-variant text-sm">Investing in our local guides and staff to provide expert, empathetic service.</p>
+</div>
+<!-- Innovation & Tech -->
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-lowest rounded-xl premium-shadow premium-shadow-hover transition-all">
+<div class="mb-4 text-secondary opacity-80">
+<span class="text-label-caps font-label-caps block mb-2">GOAL 05</span>
+<span class="material-symbols-outlined text-4xl">devices</span>
+</div>
+<h3 class="font-headline-md text-body-md font-bold text-primary mb-2">Innovation &amp; Tech</h3>
+<p class="text-on-surface-variant text-sm">Leveraging modern platforms to streamline booking and enhance the guest experience.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA/Impact Section -->
+<section class="py-stack-lg max-w-container-max mx-auto px-gutter">
+<div class="relative rounded-2xl overflow-hidden min-h-[400px] flex items-center p-stack-md md:p-stack-lg">
+<div class="absolute inset-0 z-0 transition-all duration-700 opacity-100 translate-y-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sophisticated editorial portrait of a Rwandan coffee farmer and a professional travel guide interacting warmly in a vibrant green coffee plantation. The lighting is soft and directional, highlighting textures of coffee beans and lush foliage. The overall aesthetic is one of authentic human connection and professional tourism, using a clean, high-end photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRCTHmeKb1MP6tJdIB9acg7hb50YD8FAGU7L0JrnwvAuhh3LqNFQTtG991n2BQ2UzrkqsXQhz-SD98EOigCWbslL85v4jnjXd7R6SuPJ8ZUEfFU1Uc8woMdwQdqPnUEKvIfcP5Mt0d0KoO0XsU8g3A4NjKEq3Jd4Y9PxywKg3d7e7sBFaLeAoSjXBGib5RCJAxuYDLs_F46xoBynhH2RnwXOv0pKDD0En9BE4pcGpM3NKYAI1F47Hf4py4-apPVGcT_twvA3VeDhU')"></div>
+<div class="absolute inset-0 bg-primary/60 backdrop-blur-sm"></div>
+</div>
+<div class="relative z-10 max-w-xl transition-all duration-700 opacity-100 translate-y-0">
+<h2 class="font-headline-lg text-headline-lg text-white mb-6">Experience the Land of a Thousand Hills Responsibly.</h2>
+<p class="text-white/80 font-body-lg mb-8">Join TTI Tours in discovering a Rwanda that goes beyond the brochures—where every cup of coffee and every mountain trail tells a story of resilience and rebirth.</p>
+<button class="bg-secondary text-white px-8 py-4 rounded-full font-bold premium-shadow transition-all hover:-translate-y-1 active:translate-y-0">
+                        Start Your Journey
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="bg-surface-container-low py-stack-lg">
+  <div class="max-w-container-max mx-auto px-gutter">
+    <div class="bg-surface-container-lowest rounded-2xl premium-shadow overflow-hidden">
+      <div class="grid md:grid-cols-2">
+        <div class="p-stack-md md:p-stack-lg space-y-6">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Ready to Start Your Journey?</h2>
+            <p class="text-on-surface-variant font-body-md">Inspired by our mission? Let us help you plan an authentic Rwandan experience that aligns with your values.</p>
+          </div>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-widest text-primary">Full Name</label>
+                <input type="text" placeholder="John Doe" class="w-full p-3 rounded-xl border border-outline-variant/20 bg-surface focus:outline-none focus:border-secondary transition-colors">
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-widest text-primary">Email Address</label>
+                <input type="email" placeholder="john@example.com" class="w-full p-3 rounded-xl border border-outline-variant/20 bg-surface focus:outline-none focus:border-secondary transition-colors">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold uppercase tracking-widest text-primary">Interested In</label>
+              <select class="w-full p-3 rounded-xl border border-outline-variant/20 bg-surface focus:outline-none focus:border-secondary transition-colors">
+                <option>Cultural Tours</option>
+                <option>Wildlife Safaris</option>
+                <option>Coffee Experience</option>
+                <option>Custom Itinerary</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold uppercase tracking-widest text-primary">Message</label>
+              <textarea rows="4" placeholder="Tell us about your dream trip..." class="w-full p-3 rounded-xl border border-outline-variant/20 bg-surface focus:outline-none focus:border-secondary transition-colors"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary text-on-primary py-4 rounded-full font-bold premium-shadow transition-all hover:opacity-90 active:scale-95">Send Inquiry</button>
+          </form>
+        </div>
+        <div class="hidden md:block relative">
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcFifgUkSQz87f4GF_P-ehy5EAwqOr4me0x-EP90UITp03eTdpP5h7oznlf-1WMU4wsuUxgjRpfOamAehKCNXgGTwcwyeDxsiQxJgxURhRCOboAFx_dqjPlN8epcL2lyKeS6lZ5kM0dw5afJFqn4vtDJiujHYxKBuf-FeWwMAifzZP4Vnc47Gwv0S8rKjnJnMhhmoZIkoObfEOVMquQE35KhvZcu8iSCL3UZre1jac4OsP6mk4EpYMDY3loeDtyH-dAucYhyKguC8')"></div>
+          <div class="absolute inset-0 bg-primary/20"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><footer class="bg-primary dark:bg-on-primary-fixed text-on-primary dark:text-primary-fixed border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg px-gutter py-stack-lg max-w-container-max mx-auto">
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md font-bold text-on-primary dark:text-primary-fixed">TTI Tours</h3>
+<p class="text-on-primary/70 font-body-md">Exploring Rwanda's beauty responsibly. Your premier partner for authentic East African adventures.</p>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-bold uppercase text-xs tracking-widest text-secondary-container">Navigation</h4>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Home</a>
+<a class="text-secondary-container font-bold" href="#">About Us</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Tour Packages</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Coffee Experience</a>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-bold uppercase text-xs tracking-widest text-secondary-container">Services</h4>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Custom Itineraries</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Cultural Tours</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Wildlife Safaris</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Eco-Tourism</a>
+</div>
+<div class="flex flex-col space-y-3">
+<h4 class="font-bold uppercase text-xs tracking-widest text-secondary-container">Legal</h4>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary/80 hover:text-secondary-container transition-colors" href="#">Contact</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter py-8 border-t border-on-primary/10 text-center">
+<p class="text-on-primary/60 text-sm">© 2024 TTI Tours Ltd. All rights reserved. Exploring Rwanda's beauty responsibly.</p>
+</div>
+</footer>
+<script>
+        // Simple intersection observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+
+
+</body></html>
