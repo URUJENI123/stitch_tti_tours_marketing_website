@@ -1,0 +1,72 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Corridor {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String
+  heroImage   String?
+  packages    Package[]
+  createdAt   DateTime  @default(now())
+}
+
+model Package {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  image       String?
+  corridorId  String
+  corridor    Corridor  @relation(fields: [corridorId], references: [id])
+  bookings    Booking[]
+  createdAt   DateTime  @default(now())
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  visitType       String
+  numVisitors     Int
+  firstName       String
+  middleName      String?
+  lastName        String
+  email           String
+  phone           String
+  streetAddress   String?
+  city            String?
+  stateProvince   String?
+  country         String
+  visitorCategory String
+  shortNote       String?
+  arrivalDate     DateTime
+  totalCost       Decimal
+  packageId       String?
+  package         Package? @relation(fields: [packageId], references: [id])
+  groupMembers    Json?
+  createdAt       DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model GalleryItem {
+  id        String   @id @default(cuid())
+  type      String
+  title     String
+  caption   String?
+  url       String
+  packageId String?
+  createdAt DateTime @default(now())
+}

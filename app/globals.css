@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..900&family=Hanken+Grotesk:wght@100..900&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: #f5fafd;
+  color: #171c1f;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #0e4573 0%, #186B8B 50%, #4C8386 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 30px rgba(14, 69, 115, 0.12);
+}
+
+.premium-shadow {
+  box-shadow: 0px 4px 20px rgba(14, 69, 115, 0.08);
+}
+
+.premium-shadow-hover:hover {
+  box-shadow: 0px 12px 30px rgba(14, 69, 115, 0.12);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #dee3e6;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #0d6686;
+  border-radius: 2px;
+}
+
+.memorial-section {
+  background: linear-gradient(to right, rgba(245, 250, 253, 1), rgba(239, 244, 247, 1));
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+
+.step-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear infinite;
+}
