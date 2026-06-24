@@ -1,3 +1,8 @@
 {
-  "/page": "app/page.js"
+  "/packages/page": "app/packages/page.js",
+  "/packages/[corridor]/page": "app/packages/[corridor]/page.js",
+  "/coffee-tour/page": "app/coffee-tour/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/page": "app/services/page.js"
 }

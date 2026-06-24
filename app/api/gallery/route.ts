@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { listGalleryItems } from '@/features/gallery/api'
 
 export async function GET() {
   try {
-    const items = await prisma.galleryItem.findMany({ orderBy: { createdAt: 'desc' } })
-    return NextResponse.json(items)
+    return await listGalleryItems()
   } catch (error) {
     console.error('Gallery fetch error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
