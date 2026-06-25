@@ -1,12 +1,100 @@
-import Link from 'next/link'
+'use client'
+
+import { useState, FormEvent } from 'react'
 
 export default function ContactPage() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    setError('')
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setError('Please fill in all required fields.')
+      return
+    }
+    setLoading(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        const data = await res.json()
+        setError(data.error || 'Submission failed.')
+      }
+    } catch {
+      setError('Network error. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <>
+        <section className="relative h-[614px] flex items-center overflow-hidden">
+          <div className="absolute inset-0 z-0" style={{
+            backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCldpvSYWNkCV3bhligG4Q04S9VziuI0OBnJfzSCjIFIgVdD43uN01wF1oNk5QaJoyUra7QMwEokWiNVF9XgLxOzFByll_9F03oodaVi0SaJI86X8O3CgyUdc1sBdtClkccabn9hA36x_mlJOXXr-zU9waw-hRUOLYlbYbwXwp9neuVh6GwEqctZSAfDKMWmR3Ysc_aw3r_27vt0_Kz15pXj51VfhviSZURYfxOvWk9kp9ke6Moz28BVt91X9is7PZCUVpJd3_NEtA')",
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+          }}>
+            <div className="absolute inset-0 bg-navy/20 backdrop-brightness-90" />
+          </div>
+          <div className="relative z-10 max-w-container-max mx-auto px-gutter w-full">
+            <div className="max-w-2xl">
+              <h1 className="font-headline-xl text-headline-xl text-white mb-4 drop-shadow-md">
+                Start Your Journey
+              </h1>
+              <div className="w-24 h-1 bg-teal mb-6" />
+              <p className="font-body-lg text-body-lg text-white/90 max-w-lg">
+                Connect with our expedition experts to craft your bespoke Rwandan adventure. We&apos;re here
+                to turn your travel dreams into reality.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section className="py-stack-lg max-w-container-max mx-auto px-gutter">
+          <div className="bg-white rounded-3xl premium-shadow p-stack-md md:p-stack-lg text-center max-w-xl mx-auto">
+            <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span className="material-symbols-outlined text-teal text-4xl">check_circle</span>
+            </div>
+            <h2 className="font-headline-lg text-headline-lg text-navy mb-4">Thank You!</h2>
+            <p className="font-body-lg text-on-surface-variant max-w-lg mx-auto">
+              Your inquiry has been received. Our team will reach out within 24 hours to craft your perfect Rwandan experience.
+            </p>
+          </div>
+        </section>
+        <section className="bg-navy py-stack-lg relative overflow-hidden">
+          <div className="max-w-container-max mx-auto px-gutter text-center relative z-10">
+            <h4 className="font-headline-lg text-headline-lg text-white mb-6 max-w-3xl mx-auto">
+              Once you&apos;ve found the perfect trip, contact us and let our travel experts take care of the rest.
+            </h4>
+            <div className="inline-block h-1 w-20 bg-teal" />
+          </div>
+        </section>
+      </>
+    )
+  }
+
   return (
     <>
       {/* Hero */}
       <section className="relative h-[614px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0" style={{
           backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCldpvSYWNkCV3bhligG4Q04S9VziuI0OBnJfzSCjIFIgVdD43uN01wF1oNk5QaJoyUra7QMwEokWiNVF9XgLxOzFByll_9F03oodaVi0SaJI86X8O3CgyUdc1sBdtClkccabn9hA36x_mlJOXXr-zU9waw-hRUOLYlbYbwXwp9neuVh6GwEqctZSAfDKMWmR3Ysc_aw3r_27vt0_Kz15pXj51VfhviSZURYfxOvWk9kp9ke6Moz28BVt91X9is7PZCUVpJd3_NEtA')",
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
         }}>
           <div className="absolute inset-0 bg-navy/20 backdrop-brightness-90" />
         </div>
@@ -33,27 +121,28 @@ export default function ContactPage() {
               <h2 className="font-headline-lg text-headline-lg text-navy mb-stack-md">
                 Inquire About a Tour
               </h2>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-on-surface-variant uppercase">Full Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
+                    <label className="text-xs font-bold text-on-surface-variant uppercase">Full Name *</label>
+                    <input type="text" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
                   </div>
                   <div className="flex flex-col gap-1">
-                    <label className="text-xs font-bold text-on-surface-variant uppercase">Email Address</label>
-                    <input type="email" placeholder="john@example.com" className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
+                    <label className="text-xs font-bold text-on-surface-variant uppercase">Email Address *</label>
+                    <input type="email" placeholder="john@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="text-xs font-bold text-on-surface-variant uppercase">Phone Number</label>
-                  <input type="tel" placeholder="+250 000 000 000" className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
+                  <input type="tel" placeholder="+250 000 000 000" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-bold text-on-surface-variant uppercase">Message or Trip Interest</label>
-                  <textarea placeholder="Tell us about the experiences you are looking for..." rows={4} className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all resize-none" />
+                  <label className="text-xs font-bold text-on-surface-variant uppercase">Message or Trip Interest *</label>
+                  <textarea placeholder="Tell us about the experiences you are looking for..." rows={4} value={message} onChange={(e) => setMessage(e.target.value)} className="w-full p-3 rounded border border-outline-variant/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-all resize-none" />
                 </div>
-                <button type="submit" className="w-full bg-navy text-white py-4 rounded-lg font-bold hover:bg-teal transition-all duration-300 shadow-md active:scale-[0.98]">
-                  Send Inquiry
+                {error && <p className="text-sm text-red-600">{error}</p>}
+                <button type="submit" disabled={loading} className="w-full bg-navy text-white py-4 rounded-lg font-bold hover:bg-teal transition-all duration-300 shadow-md active:scale-[0.98] disabled:opacity-50">
+                  {loading ? 'Sending...' : 'Send Inquiry'}
                 </button>
               </form>
             </div>

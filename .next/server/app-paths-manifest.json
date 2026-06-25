@@ -1,8 +1,16 @@
 {
-  "/packages/page": "app/packages/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/bookings/[id]/route": "app/api/bookings/[id]/route.js",
+  "/api/bookings/route": "app/api/bookings/route.js",
+  "/api/packages/[corridor]/route": "app/api/packages/[corridor]/route.js",
+  "/api/gallery/route": "app/api/gallery/route.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/api/packages/route": "app/api/packages/route.js",
   "/packages/[corridor]/page": "app/packages/[corridor]/page.js",
+  "/page": "app/page.js",
+  "/about/page": "app/about/page.js",
   "/coffee-tour/page": "app/coffee-tour/page.js",
   "/contact/page": "app/contact/page.js",
-  "/about/page": "app/about/page.js",
+  "/packages/page": "app/packages/page.js",
   "/services/page": "app/services/page.js"
 }

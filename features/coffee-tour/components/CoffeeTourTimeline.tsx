@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 interface TimelineStep {
@@ -24,9 +24,18 @@ const steps: TimelineStep[] = [
 
 export default function CoffeeTourTimeline() {
   const [activeStep, setActiveStep] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
 
-  const prev = () => setActiveStep(Math.max(0, activeStep - 1))
-  const next = () => setActiveStep(Math.min(steps.length - 1, activeStep + 1))
+  const prev = useCallback(() => setActiveStep(prev => Math.max(0, prev - 1)), [])
+  const next = useCallback(() => setActiveStep(prev => Math.min(steps.length - 1, prev + 1)), [])
+
+  useEffect(() => {
+    if (!isPlaying) return
+    const timer = setInterval(() => {
+      setActiveStep(prev => (prev >= steps.length - 1 ? 0 : prev + 1))
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [isPlaying])
 
   return (
     <section className="py-stack-lg px-gutter max-w-container-max mx-auto">
@@ -42,7 +51,7 @@ export default function CoffeeTourTimeline() {
           {steps.map((step, i) => (
             <button
               key={step.number}
-              onClick={() => setActiveStep(i)}
+              onClick={() => { setActiveStep(i); setIsPlaying(false) }}
               className={`flex-shrink-0 w-44 p-4 rounded-xl text-left transition-all ${
                 i === activeStep
                   ? 'bg-navy text-white shadow-lg'
@@ -82,6 +91,13 @@ export default function CoffeeTourTimeline() {
           </div>
           <div className="hidden md:flex items-center gap-3">
             <button
+              onClick={() => setIsPlaying(p => !p)}
+              className="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-offwhite transition-colors"
+              title={isPlaying ? 'Pause auto-play' : 'Resume auto-play'}
+            >
+              <span className="material-symbols-outlined text-lg">{isPlaying ? 'pause' : 'play_arrow'}</span>
+            </button>
+            <button
               onClick={prev}
               disabled={activeStep === 0}
               className="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-offwhite transition-colors disabled:opacity-30"
@@ -103,7 +119,7 @@ export default function CoffeeTourTimeline() {
         {steps.map((step, i) => (
           <button
             key={step.number}
-            onClick={() => setActiveStep(i)}
+            onClick={() => { setActiveStep(i); setIsPlaying(false) }}
             className={`w-full text-left p-4 rounded-xl transition-all ${
               i === activeStep
                 ? 'bg-navy text-white shadow-lg'

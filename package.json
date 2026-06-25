@@ -18,7 +18,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"commonjs\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.10.0",
+    "@prisma/client": "^5.22.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-select": "^2.0.0",
@@ -40,8 +40,10 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.0",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.0",
     "postcss": "^8.4.0",
-    "prisma": "^5.10.0",
+    "prisma": "^5.22.0",
     "tailwindcss": "^3.4.0",
     "ts-node": "^10.9.0",
     "typescript": "^5.3.0"
