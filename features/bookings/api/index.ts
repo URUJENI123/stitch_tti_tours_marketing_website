@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/shared/lib/prisma'
 import { bookingSchema } from '@/shared/lib/validations/booking'
+import { sendBookingNotification } from '@/shared/lib/email'
 
 export async function createBooking(request: NextRequest) {
   const body = await request.json()
@@ -25,6 +26,17 @@ export async function createBooking(request: NextRequest) {
       packageId: packageId || null, groupMembers: groupMembers || undefined,
     },
   })
+
+  try {
+    await sendBookingNotification({
+      firstName, lastName, email, phone, country,
+      visitorCategory, numVisitors,
+      arrivalDate: arrivalDate.toString(),
+      shortNote: shortNote || null,
+    })
+  } catch (error) {
+    console.error('Failed to send booking email notification:', error)
+  }
 
   return NextResponse.json({ success: true, id: booking.id }, { status: 201 })
 }
