@@ -1,13 +1,25 @@
 import nodemailer from 'nodemailer'
 
+const {
+  SMTP_HOST,
+  SMTP_PORT,
+  SMTP_SECURE,
+  SMTP_USER,
+  SMTP_PASS,
+} = process.env
+
+if (!SMTP_HOST) {
+  console.error('SMTP_HOST is not set — check your .env file and restart the server')
+}
+
 function createTransporter() {
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST as string,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_SECURE === 'true',
+    host: SMTP_HOST || 'smtp.gmail.com',
+    port: Number(SMTP_PORT) || 587,
+    secure: SMTP_SECURE === 'true',
     auth: {
-      user: process.env.SMTP_USER as string,
-      pass: process.env.SMTP_PASS as string,
+      user: SMTP_USER as string,
+      pass: SMTP_PASS as string,
     },
   })
 }
