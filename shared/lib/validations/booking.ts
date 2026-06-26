@@ -22,7 +22,6 @@ export const bookingSchema = z.object({
   ]),
   shortNote: z.string().optional(),
   arrivalDate: z.string().min(1, 'Arrival date is required'),
-  totalCost: z.number().min(0),
   packageId: z.string().optional(),
   groupMembers: z
     .array(

@@ -119,9 +119,6 @@ export default function CorridorCatalog() {
                                   ))}
                                 </ul>
                               )}
-                              {(featuredPkg as any).price && (
-                                <span className="text-teal font-bold">{(featuredPkg as any).price}</span>
-                              )}
                             </div>
                             <Link
                               href={`/coffee-tour?package=${corridor.slug}`}

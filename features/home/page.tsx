@@ -3,7 +3,6 @@ import Link from 'next/link'
 const featuredPackages = [
   {
     title: 'Volcanoes & Gorilla Trekking',
-    price: '$1,850+',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuCkuRveiZWCNf71vHvpGOoWp5gg35DAmuuMV3SOrIvoonFGl9r6_NvKXOgulOZX02a74OIeSGh1XpKqBNnoGqdIFXnR2XivUDCamUXK0lr5_IXfF4P6zJ46jgQuqf_7_r-H_ZfzIe150UOXJtHy9G_wHzLCQGQFbpZXiqKMxXgk6lO97Qk8xiK_meKt74HpqViuaRlLjRXAQi6zXCYnHnaeJE3B2ooQb179sx9hjbyXO2oheaH3griFhXi8lMvb2R7liMaYIFtAPrw',
     description:
@@ -13,7 +12,6 @@ const featuredPackages = [
   },
   {
     title: 'Nyungwe Forest Canopy',
-    price: '$1,200+',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuC5oiIbxWa_jyKmiiLmyah1RRIgP64Ahq3KB9CdcAe6pXzaMZS02tnsAmXfCPOHeQJLKY_qB8_QZCJNNqWAlKq1N8lOWOAjFRvH3MDmvazU-Cw1PhVXnnFn6h3SBMM66U5ZpiUrlnBARm1mKKbnl0yQZ8uCI0mvsiOPRplPw_6sBLQFKFpmZazw9Le8b9DYiavVs4tonTneeTWilVSxID2oGzJCvrTu_kfnGzpVXJCKauQ2gYkx-dRZ3rlE3u18o0KYv6KbVfv4FAU',
     description:
@@ -23,7 +21,6 @@ const featuredPackages = [
   },
   {
     title: 'Lake Kivu Serenity',
-    price: '$950+',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuCSZp3LUPi1I2JRXXtV_7TlEk82vtEA2u1ajjBQfLomfDkS1nu792Ax7vT68w8geR88tpai8BLD7gVPel_MdIldmHJY0Uonx3NDcfFFSvuUJgjd-h4qQWrKg5xGnSKrvZtgtWDMILIIgYYYrUtRL3WiR6LdZOoeYbNhq2Y2XDxm8Azz8XyWm-KyCr_OKvAm3B_aUwphymdlW5A78MZPPewTeuN4z_kkocRXcVng8NpP7LPT0QWCknZPkOtjtlqVf9s_zJsToffidOU',
     description:
@@ -33,7 +30,6 @@ const featuredPackages = [
   },
   {
     title: 'Akagera Savannah Safari',
-    price: '$1,400+',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuDDvWFiNc_hwTe79j0BMh7L5hmCeNo1Sgc05I_opjiP6zTGIANb_QJeh5GQPKQckj7mJhUZ8IXBq4RYg2WjCYB69NsJF2V1qBuqjazkUwLZ8fhoKOZ_HDQrKG_Ta5-f7N_g8gFaa1dy6FKrvS4hOIgmvfq3la0NaEtRoBRl99CrIEh8xHt8cRZJ4briF89TRFE6bdstoh_MBBG5ksmxgdDOQg0eqluOJoOOSj8EOBLaL9bA7tU2yqGfWrd2T4pX3w2NOvuH6o18RWo',
     description:
@@ -43,7 +39,6 @@ const featuredPackages = [
   },
   {
     title: 'Kigali City Heritage',
-    price: '$500+',
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuCsNSPsPO48VWeKptm0f7WkUp0Cmx41FrEfJKnOnQ7A9TqDNe5BSUHcQRqLDm50bbiGxT3AGoalvML--b0WLYglFj4p6haH96-q2pnw_GufBEOPSmcpxPGB770o-mGmv2tKslF8ur0ynW3PeZHPpCTaf-RzpuZa20jSgY6QOuSqks73_oH2U2OIsaRprBDtRy-MftmowIp1G4hB2PZxvp7RjP_uHCIwxFWIPPvR8vJFHCsC82qUST0M7a6S3m-0blFURe0iS3UfnUY',
     description:
@@ -211,10 +206,7 @@ export default function HomePage() {
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold text-navy">{pkg.title}</h3>
-                    <span className="text-teal font-bold">{pkg.price}</span>
-                  </div>
+                  <h3 className="text-xl font-bold text-navy mb-3">{pkg.title}</h3>
                   <p className="text-on-surface-variant text-sm mb-6 flex-1">
                     {pkg.description}
                   </p>
@@ -241,14 +233,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-8 md:w-1/2 flex flex-col justify-center">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-2xl font-bold text-navy">
-                      {featuredPackages[4].title}
-                    </h3>
-                    <span className="text-teal font-bold">
-                      {featuredPackages[4].price}
-                    </span>
-                  </div>
+                  <h3 className="text-2xl font-bold text-navy mb-3">
+                    {featuredPackages[4].title}
+                  </h3>
                   <p className="text-on-surface-variant font-body-md mb-8">
                     {featuredPackages[4].description}
                   </p>

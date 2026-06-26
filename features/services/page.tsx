@@ -108,7 +108,7 @@ export default function ServicesPage() {
                 uncompromising comfort.
               </p>
               <ul className="space-y-3">
-                {['Preferred rates at luxury eco-lodges', 'Verified sanitation and safety standards', '24/7 concierge support during your stay'].map((item) => (
+                {['Handpicked luxury eco-lodges', 'Verified sanitation and safety standards', '24/7 concierge support during your stay'].map((item) => (
                   <li key={item} className="flex items-center gap-3 font-body-md text-on-surface">
                     <span className="material-symbols-outlined text-teal">check_circle</span>
                     {item}

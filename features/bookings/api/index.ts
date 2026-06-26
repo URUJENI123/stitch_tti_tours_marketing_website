@@ -13,7 +13,7 @@ export async function createBooking(request: NextRequest) {
   const {
     visitType, numVisitors, firstName, middleName, lastName, email, phone,
     streetAddress, city, stateProvince, country, visitorCategory, shortNote,
-    arrivalDate, totalCost, packageId, groupMembers,
+    arrivalDate, packageId, groupMembers,
   } = parsed.data
 
   const booking = await prisma.booking.create({
@@ -22,7 +22,7 @@ export async function createBooking(request: NextRequest) {
       middleName: middleName || null, lastName, email, phone,
       streetAddress: streetAddress || null, city: city || null,
       stateProvince: stateProvince || null, country, visitorCategory,
-      shortNote: shortNote || null, arrivalDate: new Date(arrivalDate), totalCost,
+      shortNote: shortNote || null, arrivalDate: new Date(arrivalDate),
       packageId: packageId || null, groupMembers: groupMembers || undefined,
     },
   })

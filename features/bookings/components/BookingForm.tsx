@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { Input } from '@/shared/components/ui/input'
 import { Label } from '@/shared/components/ui/label'
 import { Textarea } from '@/shared/components/ui/textarea'
@@ -32,12 +32,12 @@ const COUNTRY_LIST = [
 ]
 
 const VISITOR_CATEGORIES = [
-  { value: 'foreigner', label: 'Foreigner', rate: 150 },
-  { value: 'foreign_resident', label: 'Foreign Resident', rate: 100 },
-  { value: 'eac_citizen', label: 'EAC Citizen', rate: 80 },
-  { value: 'foreign_student', label: 'Foreign Student', rate: 60 },
-  { value: 'rwandan_citizen', label: 'Rwandan Citizen', rate: 30 },
-  { value: 'rwandan_student', label: 'Rwandan Student', rate: 20 },
+  { value: 'foreigner', label: 'Foreigner' },
+  { value: 'foreign_resident', label: 'Foreign Resident' },
+  { value: 'eac_citizen', label: 'EAC Citizen' },
+  { value: 'foreign_student', label: 'Foreign Student' },
+  { value: 'rwandan_citizen', label: 'Rwandan Citizen' },
+  { value: 'rwandan_student', label: 'Rwandan Student' },
 ]
 
 export default function BookingForm() {
@@ -45,9 +45,6 @@ export default function BookingForm() {
   const [numVisitors, setNumVisitors] = useState(1)
   const [visitorCategory, setVisitorCategory] = useState('foreigner')
   const [errors, setErrors] = useState<Record<string, string>>({})
-
-  const rate = VISITOR_CATEGORIES.find((c) => c.value === visitorCategory)?.rate || 0
-  const totalCost = useMemo(() => rate * numVisitors, [rate, numVisitors])
 
   const validate = () => {
     const newErrors: Record<string, string> = {}
@@ -99,7 +96,6 @@ export default function BookingForm() {
           visitorCategory,
           shortNote,
           arrivalDate,
-          totalCost,
         }),
       })
       if (res.ok) {
@@ -276,18 +272,6 @@ export default function BookingForm() {
                 min={new Date().toISOString().split('T')[0]}
               />
               {errors.arrivalDate && <p className="text-xs text-red-600">{errors.arrivalDate}</p>}
-            </div>
-
-            <div className="bg-navy/5 p-4 rounded-xl">
-              <div className="flex justify-between items-center">
-                <span className="font-label-caps text-label-caps text-navy">Total Cost</span>
-                <span className="font-headline-md text-headline-md text-navy font-bold">
-                  ${totalCost.toLocaleString()}
-                </span>
-              </div>
-              <p className="text-xs text-on-surface-variant mt-1">
-                Rate: ${rate}/visitor × {numVisitors} visitor{numVisitors > 1 ? 's' : ''}
-              </p>
             </div>
 
             {errors.form && (

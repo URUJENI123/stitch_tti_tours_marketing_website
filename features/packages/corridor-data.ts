@@ -11,7 +11,7 @@ export const corridors = [
         desc: 'Witness the legendary Mountain Gorillas in their natural habitat. Rwanda currently has 12 habituated gorilla families available to visit. The annual "Kwita Izina" baby gorilla naming ceremony, held since 2005, is rooted in a centuries-old Rwandan tradition. Only 8 people per gorilla family per day, visits capped at one hour, minimum age of 15.',
         rules: ['Maintain 10m distance', 'Maximum 1 hour observation', 'No flash photography'],
         image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCjINUSRFv7UittYpBJO6AAHXe3F0BQVZgbbW94jSc03juQ6_Hk20gQl-kYIK4-cWlQm7QCS1zjMzw75Ro6kZZWKAlB3-z9P-oqN_1ETtbsKB8G0YdUwSjzmxd5qJuj-zDhNKTAiklEmyeJ5C6SkvGddnafz_nokaD2P7UO4BPEzfpQmircKY934UXriV3-cwHqoKKIkDoht6ayxhfzkEDio8uVly4bhWBpP9k8MYyzt4kHA_Iwa07q_uX7hreGyFffWbqZwvildIg',
-        price: 'From $1,500' },
+      },
       { name: 'Karisimbi Hiking', desc: 'Climb the highest of the Virunga volcanoes at 4,507m for a challenging multi-day trek.', image: '' },
       { name: 'Bisoke Hiking', desc: 'Ascend to the stunning crater lake at the summit of Mount Bisoke.', image: '' },
       { name: 'Gahinga Hiking', desc: 'Explore the extinct volcano with its unique bamboo forest ecosystem.', image: '' },

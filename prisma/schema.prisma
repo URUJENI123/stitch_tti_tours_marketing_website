@@ -45,7 +45,6 @@ model Booking {
   visitorCategory String
   shortNote       String?
   arrivalDate     DateTime
-  totalCost       Decimal
   packageId       String?
   package         Package? @relation(fields: [packageId], references: [id])
   groupMembers    Json?
